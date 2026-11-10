@@ -1,0 +1,17 @@
+# Amplify Hosting: define la variable de entorno VITE_API_URL con la URL del backend en ECS Express.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
